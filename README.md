@@ -1,0 +1,2 @@
+RefSeqScan: a tool for finding discrepancies of RefSeq transcript sequences and the reference genome sequence
+===========================================================================================================
