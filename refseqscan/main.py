@@ -20,9 +20,9 @@ def get_reference_sequence(transcript, reference):
     exonseqs = []
     for exon in transcript.exons:
         if transcript.strand == '+':
-            exonseq = reference.getSequence(transcript.chrom, exon.start, exon.end)
+            exonseq = reference.getSequence(transcript.chrom, exon.start+1, exon.end)
         else:
-            exonseq = reverse_complement(reference.getSequence(transcript.chrom, exon.start, exon.end))
+            exonseq = reverse_complement(reference.getSequence(transcript.chrom, exon.start+1, exon.end))
         exonseqs.append(exonseq)
     return ''.join(exonseqs)
 
