@@ -22,7 +22,7 @@ def get_reference_sequence(transcript, reference):
         if transcript.strand == '+':
             exonseq = reference.getSequence(transcript.chrom, exon.start, exon.end)
         else:
-            exonseq = reverse_complement(reference.getSequence(exon.chrom, exon.start, exon.end))
+            exonseq = reverse_complement(reference.getSequence(transcript.chrom, exon.start, exon.end))
         exonseqs.append(exonseq)
     return ''.join(exonseqs)
 
