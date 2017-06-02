@@ -1,23 +1,29 @@
 #!env/bin/python
 
-import datetime
 from optparse import OptionParser
 from refseqscan.main import main
+import datetime
+import sys
 
 
 ver = '0.1.0'
 
 # Command line argument parsing
-descr = 'refseq_scan v'+ver
+descr = 'RefSeqScan v'+ver
 parser = OptionParser(usage='python path/to/refseq_scan/refseq_scan.py <options>', version=ver, description=descr)
 parser.add_option('-i', "--in", default=None, dest='input', action='store', help="Input RefSeq database file")
-parser.add_option('-r', "--ref", default='...', dest='reference', action='store', help="Reference genome file [default value: %default]")
+parser.add_option('-r', "--ref", default=None, dest='reference', action='store', help="Reference genome file")
 parser.add_option('-o', "--out", default='output.txt', dest='output', action='store', help="Output file name [default value: %default]")
 (options, args) = parser.parse_args()
 
+if options.input is None:
+    sys.exit('\nInput RefSeq database file not specified.')
+if options.reference is None:
+    sys.exit('\nReference genome file not specified.')
+
 # Welcome message
 print '\n'+'='*100
-print 'refseq_scan v'+ver+' started: '+str(datetime.datetime.now())+'\n'
+print 'RefSeqScan v'+ver+' started: '+str(datetime.datetime.now())+'\n'
 
 main(options)
 
