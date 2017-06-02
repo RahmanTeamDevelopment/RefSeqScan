@@ -10,10 +10,10 @@ ver = '0.1.0'
 
 # Command line argument parsing
 descr = 'RefSeqScan v'+ver
-parser = OptionParser(usage='python path/to/refseq_scan/refseq_scan.py <options>', version=ver, description=descr)
-parser.add_option('-i', "--in", default=None, dest='input', action='store', help="Input RefSeq database file")
-parser.add_option('-r', "--ref", default=None, dest='reference', action='store', help="Reference genome file")
-parser.add_option('-o', "--out", default='output.txt', dest='output', action='store', help="Output file name [default value: %default]")
+parser = OptionParser(version=ver, description=descr)
+parser.add_option('-i', default=None, dest='input', action='store', help="Input RefSeq database file")
+parser.add_option('-r', default=None, dest='reference', action='store', help="Reference genome file")
+parser.add_option('-o', default='output.txt', dest='output', action='store', help="Output file name [default value: %default]")
 (options, args) = parser.parse_args()
 
 if options.input is None:
