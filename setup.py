@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name = 'RefSeqScan',
-    version = '0.1.0',
+    version = '0.1.1',
     description = 'A tool for finding discrepancies of RefSeq transcript sequences and the reference genome sequence',
     url = 'https://github.com/RahmanTeamDevelopment/RefSeqScan',
     author = 'Marton Munz',
