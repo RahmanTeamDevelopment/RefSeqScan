@@ -1,6 +1,6 @@
 import sys
 import datetime
-from utils.transcripts import TranscriptDB
+from tgmi.transcripts import TranscriptDB
 from reference import Reference
 
 
