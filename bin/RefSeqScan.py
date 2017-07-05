@@ -6,7 +6,7 @@ import datetime
 import sys
 
 
-ver = '0.1.1'
+ver = '0.2.0'
 
 # Command line argument parsing
 descr = 'RefSeqScan v'+ver
