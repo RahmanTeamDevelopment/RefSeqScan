@@ -29,6 +29,12 @@ def get_reference_sequence(transcript, reference):
 def compare_sequences(ref, seq, cdna_coding_start, cdna_coding_end):
     """Compare transcript sequence with reference"""
 
+    if len(ref) != len(seq):
+        while seq[-1] == 'A':
+            seq = seq[:-1]
+        while ref[-1] == 'A':
+            ref = ref[:-1]
+
     if ref == seq: return '.'
 
     if len(ref) != len(seq):
