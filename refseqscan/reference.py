@@ -21,13 +21,16 @@ class Reference(object):
             if not goodchrom in self.fastafile.references:
                 if chrom == 'MT':
                     goodchrom = 'chrM'
-                    if not goodchrom in self.fastafile.references: return None
+                    if not goodchrom in self.fastafile.references:
+                        return None
                 else:
                     return None
 
         # Fetching data from reference genome
-        if end < start: return ''
-        if start < 1: start = 1
+        if end <= start:
+            return ''
+        if start < 0:
+            start = 0
 
         if pysam.__version__ in ['0.7.7', '0.7.8', '0.8.0']:
             last = self.fastafile.getReferenceLength(goodchrom)
@@ -35,5 +38,5 @@ class Reference(object):
             last = self.fastafile.get_reference_length(goodchrom)
 
         if end > last: end = last
-        seq = self.fastafile.fetch(goodchrom, start - 1, end)
+        seq = self.fastafile.fetch(goodchrom, start, end)
         return seq.upper()
