@@ -11,7 +11,7 @@ class Reference(object):
         self.fastafile = pysam.Fastafile(filename)
 
 
-    def getSequence(self, chrom, start, end):
+    def get_sequence(self, chrom, start, end):
         """"Retrieving the sequence of a genomic region"""
 
         # Checking if chromosome name exists

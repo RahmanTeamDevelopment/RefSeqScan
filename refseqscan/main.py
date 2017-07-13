@@ -19,7 +19,7 @@ def get_reference_sequence(transcript, reference):
 
     ret = ''
     for exon in transcript.exons:
-        exon_seq = reference.getSequence(transcript.chrom, exon.start, exon.end)
+        exon_seq = reference.get_sequence(transcript.chrom, exon.start, exon.end)
         if transcript.strand == '-':
             exon_seq = reverse_complement(exon_seq)
         ret += exon_seq
